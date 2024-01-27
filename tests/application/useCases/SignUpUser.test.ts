@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { AddRepository } from '../src/Repository.interface'
-import User from '../src/User'
-import SignUpUser from '../src/SignUpUser'
+import { AddRepository } from '../../../src/application/repository/Repository.interface'
+import User from '../../../src/domain/entity/User'
+import SignUpUser from '../../../src/application/useCases/SignUpUser'
 
 export class UsersRepository implements AddRepository {
     users: User[] = []

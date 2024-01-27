@@ -1,5 +1,5 @@
-import User from "./User"
-import { AddRepository } from "./Repository.interface"
+import User from "../../domain/entity/User"
+import { AddRepository } from "../repository/Repository.interface"
 
 export default class SignUpUser {
     constructor(readonly userRepository: AddRepository) { }
