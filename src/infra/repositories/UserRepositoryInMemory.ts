@@ -1,5 +1,5 @@
-import { AddRepository, GetByEmail } from "../application/repository/Repository.interface"
-import User from "../domain/entity/User"
+import { AddRepository, GetByEmail } from "../../application/repository/Repository.interface"
+import User from "../../domain/entity/User"
 
 export default class UserRepositoryInMemory implements UserRepository {
     users: User[] = []

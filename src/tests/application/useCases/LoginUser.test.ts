@@ -1,8 +1,8 @@
 import { beforeAll, describe, expect, it } from "vitest";
-import User from "../../../src/domain/entity/User";
-import UserRepositoryInMemory from "../../../src/infra/UserRepositoryInMemory";
-import LoginUser from "../../../src/application/useCases/LoginUser";
-import { PasswordIncorrect } from "../../../src/application/Erros/PasswordIncorrect";
+import User from "../../../domain/entity/User";
+import UserRepositoryInMemory from "../../../infra/repositories/UserRepositoryInMemory";
+import LoginUser from "../../../application/useCases/LoginUser";
+import { PasswordIncorrect } from "../../../application/Erros/PasswordIncorrect";
 
 
 describe('LoginUser', () => {

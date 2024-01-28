@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { PORT, server } from "../src";
+import { PORT, server } from "../../../infra/http/express";
 
 describe('e2e', () => {
     const userFake = { email: 'any_email@email.com', password: 'any_password' }
