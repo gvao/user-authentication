@@ -7,9 +7,10 @@ export default class LoginUser {
 
     async execute({ email, password }: Input): Promise<Output> {
         const user = await this.usersRepository.getByEmail(email)
-        if (user.password !== password) {
-            throw new PasswordIncorrect(password)
-        }
+
+        if (!user) throw new Error(`User ${email} not found`)
+        if (user.password !== password) throw new PasswordIncorrect(password)
+
         return {
             token: user.token
         }
