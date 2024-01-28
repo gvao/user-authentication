@@ -3,5 +3,5 @@ export interface AddRepository<T> {
 }
 
 export interface GetByEmail<T> {
-    getByEmail: (email: string) => Promise<T>
+    getByEmail: (email: string) => Promise<T | null>
 }

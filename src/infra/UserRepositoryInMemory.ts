@@ -4,9 +4,9 @@ import User from "../domain/entity/User"
 export default class UserRepositoryInMemory implements UserRepository {
     users: User[] = []
 
-    async getByEmail(email: string): Promise<User> { 
+    async getByEmail(email: string): Promise<User | null> { 
         const user = this.users.find(user => user.email === email)
-        if(!user) throw new Error(`User ${email} not found`)
+        if(!user) return null
         return user
     }
     async add(user: User) {
