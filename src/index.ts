@@ -1,14 +1,5 @@
-import Express from 'express'
-import { createServer } from 'http'
+import { PORT, server } from "./infra/http/express";
 
-import authRoute from './infra/routes/auth'
-
-const app = Express()
-const PORT = process.env.PORT || 3000
-
-app.use(Express.json())
-app.use('/api', authRoute)
-
-const server = createServer(app)
-
-export { server, PORT } 
+server.listen(PORT, () => {
+    console.log(`listening on port ${PORT}: http://localhost:${PORT}`);
+})

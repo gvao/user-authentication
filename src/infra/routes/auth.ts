@@ -1,5 +1,5 @@
 import { Router } from "express"
-import UserRepositoryInMemory from "../UserRepositoryInMemory"
+import UserRepositoryInMemory from "../repositories/UserRepositoryInMemory"
 import SignUpUser from "../../application/useCases/SignUpUser"
 import LoginUser from "../../application/useCases/LoginUser"
 
