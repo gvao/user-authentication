@@ -6,6 +6,8 @@
   "scripts": {
     "test": "vitest",
     "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "node --watch .",
     "start": "node ."
   },
   "keywords": [],
