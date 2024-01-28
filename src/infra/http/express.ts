@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(Express.json())
 app.use('/api', authRoute)
-app.use(Express.static(path.join(__dirname, '../../../public')))
+app.use(Express.static(path.join(__dirname, '../../../public/dist')))
 
 const server = createServer(app)
 
