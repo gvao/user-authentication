@@ -27,12 +27,13 @@ describe('e2e', () => {
             expect(token).toBe(tokenUserFake)
         })
     
-        it.skip('should return user with token', async () => {
+        it('should return user with token', async () => {
+            const expectedUser = { name: userFake.name, email: userFake.email }
             const { user } = await fetcher('/user', 'GET', { authorization: `Bearer ${tokenUserFake}` })
-            expect(user).toBeDefined()
+            expect(user).toEqual(expectedUser)
         })
-
     })
+
 
     afterAll(async () => {
         server.close()
