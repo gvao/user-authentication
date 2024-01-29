@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import SignUpUser from '../../../application/useCases/SignUpUser'
-import UserRepositoryInMemory from '../../../infra/repositories/UserRepositoryInMemory'
-import User from '../../../domain/entity/User'
-import { ErrorUserAlreadyExists } from '../../../application/Erros/ErrorUserAlreadyExists'
+import SignUpUser from '../../../src/application/useCases/SignUpUser'
+import UserRepositoryInMemory from '../../../src/infra/repositories/UserRepositoryInMemory'
+import User from '../../../src/domain/entity/User'
+import { ErrorUserAlreadyExists } from '../../../src/application/Erros/ErrorUserAlreadyExists'
 
 describe('signup', () => {
     let userRepository: UserRepositoryInMemory
