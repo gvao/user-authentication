@@ -8,9 +8,9 @@ const authRoute = Router()
 const userRepository = new UserRepositoryInMemory()
 
 authRoute.post('/signup', async (req, res) => {
-    const { email, password } = req.body
+    const { email, password, name } = req.body
     const signupUser = new SignUpUser(userRepository)
-    const { token } = await signupUser.execute({ email, password })
+    const { token } = await signupUser.execute({ email, password, name })
     res.status(200).json({
         token,
     })
