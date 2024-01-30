@@ -1,4 +1,4 @@
-import { useEffect, useState  } from 'react'
+import { useState  } from 'react'
 import style from './Register.module.css'
 
 const Register = () => {
@@ -31,8 +31,8 @@ const Register = () => {
  
   return (
     <div className={style.resgister}>
-      <h1>Criar cadastro</h1>
       <form onSubmit={handleSubmit}>
+      <h1>Criar cadastro</h1>
       <h5>Olá, seja bem vindo(a), vamos criar seu cadastro ?</h5>
         <label>
           <span>Nome:</span>
@@ -78,7 +78,7 @@ const Register = () => {
             required/>
         </label>
 
-        <button className='btn'>Entrar</button>
+        <button className='btn'>Cadastrar</button>
         {error ? (
           <p className='error'>{error}</p>
         ) : (

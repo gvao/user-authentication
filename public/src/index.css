@@ -2,7 +2,7 @@ body {
     background-color: #f6fcff;
     padding: 0;
     margin: 0;
-    font-family: arial;
+    font-family: 'Montserrat', sans-serif;
 }
 
 form {
@@ -25,7 +25,23 @@ label {
 span {
     text-align: left;
     font-weight: bold;
+    color: rgb(125, 44, 125);
 }
+
+a, nav button {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    transition: .4s;
+    font-size: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  a:hover,
+  nav button:hover{
+    color: #bbb;
+  }
 
 input {
     border: none;
@@ -34,10 +50,16 @@ input {
     padding: 10px;
     background-color: transparent;
     outline: none;
+    font-size: 1em;
 }
 
 input::placeholder {
-    font-size: 1.1em;
+    font-size: 1em;
+}
+
+input:focus {
+  outline: none;
+  
 }
 
 .btn {
@@ -49,6 +71,7 @@ input::placeholder {
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
+    outline: none;
 }
 
 .btn:hover {
