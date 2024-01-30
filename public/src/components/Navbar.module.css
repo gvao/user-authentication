@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgb(0, 0, 0, 15) 0px -2px 10px 0px ;
+    align-items: center;
+    padding: .5em 2em;
+}
+
+.logo {
+    font-weight: bold;
+ 
+}
+
+ .lists_links {
+    display: flex;
+    list-style: none;
+    
+}
+
+.lists_links li {
+    margin-right: 5px;
+}
+
+.lists_links li a {
+    text-decoration: none;
+    padding: .4em .6em;
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
