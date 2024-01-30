@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <div className={style.login}>
-        <h1>Entrar</h1>
         <form>
+            <h1>Entrar</h1>
             <label>
             <span>E-mail</span>
             <input type="email" placeholder='Digite seu E-mail' />
@@ -15,8 +15,7 @@ const Login = () => {
             </label>
             <button className='btn'>Entrar</button>
         </form>
-        <p></p> 
-       <Link to='/register'><button>Criar Cadastro</button></Link>
+       <Link to='/register'><button className='btn_resgiter'>Criar Cadastro</button></Link>
     </div>
   )
 }
