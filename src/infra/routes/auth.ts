@@ -39,4 +39,11 @@ authRoute.get('/user', async (req, res) => {
     res.status(200).json({ user })
 })
 
+authRoute.get('/users', (req, res) => {
+    const users = userRepository.users
+    res.status(200).json({
+        users
+    })
+})
+
 export default authRoute
