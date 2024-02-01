@@ -8,7 +8,6 @@
 
 .logo {
     font-weight: bold;
- 
 }
 
  .lists_links {
@@ -27,6 +26,7 @@
     border-radius: 10px;
     transition: .4s;
 }
+
 
 .active {
     background-color: black;
