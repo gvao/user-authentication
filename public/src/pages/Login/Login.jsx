@@ -1,17 +1,28 @@
 import style from './Login.module.css'
 import { useState  } from 'react'
 import { Link } from 'react-router-dom'
+import { useSend } from '../../hooks/useSend'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e) => {
+  const {sendRequest, error:sendError} = useSend()
+
+  const handleSubmit = async(e) => {
     e.preventDefault()
     const user = {
       email,
       password
     }
-    console.log(user);
+
+    try {
+      await sendRequest(user, 'http://localhost:3000/api/login')
+      console.log(user);
+    } catch (error) {
+      console.log(sendError);
+    }
+
+
   }
   return (
     <div className={style.login}>
