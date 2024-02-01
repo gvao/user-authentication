@@ -9,7 +9,6 @@ export default class User {
     private _token: string;
 
     constructor({ name, email, password, userId, token }: UserProps) {
-        if (!name) throw new Error('Name must be provided')
         this.name = name
         this.userId = userId
         this.email = email;
