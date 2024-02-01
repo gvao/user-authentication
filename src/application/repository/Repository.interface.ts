@@ -5,3 +5,7 @@ export interface AddRepository<T> {
 export interface GetByEmail<T> {
     getByEmail: (email: string) => Promise<T | null>
 }
+
+export interface GetByTokenRepository<T> {
+    getByToken(token: string): Promise<T | null>
+}

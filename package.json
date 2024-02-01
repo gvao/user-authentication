@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "vitest",
-    "build": "tsc && cd public && npm run build",
+    "build": "npm run build:public && npm run build:ts",
+    "build:public": "cd public && npm i && npm run build",
+    "build:ts": "tsc",
     "build:watch": "tsc --watch",
     "dev": "node --watch .",
     "start": "node ."
