@@ -1,14 +1,14 @@
 import style from './Login.module.css'
-import { useState  } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSend } from '../../hooks/useSend'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const {sendRequest, error:sendError} = useSend()
+  const { sendRequest, error: sendError } = useSend()
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const user = {
       email,
@@ -26,17 +26,17 @@ const Login = () => {
   }
   return (
     <div className={style.login}>
-        <form onSubmit={handleSubmit}>
-            <h1>Entrar</h1>
-            <label>
+      <form onSubmit={handleSubmit}>
+        <h1>Entrar</h1>
+        <label>
           <span>E-mail:</span>
           <input
             type="email"
             placeholder='Digite seu E-mail'
             name='email'
             value={email}
-            onChange={(e) => setEmail(e.target.value)} 
-            required/>
+            onChange={(e) => setEmail(e.target.value)}
+            required />
         </label>
 
         <label>
@@ -46,13 +46,13 @@ const Login = () => {
             placeholder='Digite sua senha'
             name='password'
             value={password}
-            onChange={(e) => setPassword(e.target.value)} 
-            required/>
+            onChange={(e) => setPassword(e.target.value)}
+            required />
         </label>
-            <button className='btn'>Entrar</button>
-           
-        </form>
-       <Link to='/register'><button className='btn_resgiter'>Criar Cadastro</button></Link>
+        <button className='btn'>Entrar</button>
+
+      </form>
+      <Link to='/register'><button className='btn_resgiter'>Criar Cadastro</button></Link>
     </div>
   )
 }
