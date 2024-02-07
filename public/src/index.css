@@ -67,7 +67,7 @@ input:focus {
     background-color: rgb(19, 142, 52);
     color: white;
     border: none;
-    padding: 5px;
+    padding: 10px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
@@ -83,7 +83,7 @@ input:focus {
     margin-top: 20px;
     max-width: 300px;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     font-size: 1em;
     border: 1px solid #cecece;
     border-radius: 10px;
@@ -96,15 +96,20 @@ input:focus {
     background-color: #eaeaea;
 }
 
+.btn[disabled] {
+    background-color: rgba(90, 126, 98, 0.409);
+    color: #5e5e5efb;
+}
+
 .error {
-    color: #725858;
+    color: #322727;
     background-color: rgb(255, 195, 195);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .registered {
-    color: rgb(59, 133, 83); ;
+    color: rgb(17, 31, 21); ;
     background-color: rgb(191, 239, 203);
     padding: 10px;
     border-radius: 10px;

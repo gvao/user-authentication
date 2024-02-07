@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
 import Footer from './components/Footer'

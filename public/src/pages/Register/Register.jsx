@@ -1,6 +1,8 @@
 import { useState  } from 'react'
 import style from './Register.module.css'
 
+import { useSend } from '../../hooks/useSend'
+
 const Register = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -8,6 +10,10 @@ const Register = () => {
   const [confirmPassword, setConfirmePassword] = useState('')
   const [error,setError] = useState('')
   const [registered, setRegistered] = useState('')
+
+  
+
+  const {sendRequest, error:sendError, loading} = useSend()
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,12 +26,20 @@ const Register = () => {
     }
 
     if (password !== confirmPassword) {
-      return setError('As senhas precisam ser iguais!')
-      
+       setError('As senhas precisam ser iguais!') 
+       return
     } 
-    setRegistered('Usuário cadastrado com sucesso!');
 
-    console.log(user);
+    try {
+       sendRequest(user, 'http://localhost:3000/api/signup')
+      console.log(user);
+
+    } catch (error) {
+      console.log(sendError);
+    }
+
+    
+    setRegistered('Usuário cadastrado com sucesso!');
   }
 
  
@@ -78,7 +92,12 @@ const Register = () => {
             required/>
         </label>
 
-        <button className='btn'>Cadastrar</button>
+        
+        {!loading 
+        ? <button className='btn'>Cadastrar</button> 
+        : <button className='btn' disabled >Aguarde...</button>
+        }
+
         {error ? (
           <p className='error'>{error}</p>
         ) : (

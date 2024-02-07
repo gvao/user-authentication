@@ -2,28 +2,30 @@ import React, { useState } from 'react'
 
 export const useSend =  () => {
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
     
-    const sendRequest = async(data, api) => {
+    const sendRequest = async(data, url) => {
         try {
-            const response = await fetch(api, {
+            setLoading(true)
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             }) 
-    
+
             if(!response.ok) {
-                setError('Erro ao cadastrar usuário')
+                const errorMessage = await response.text()
+                throw new Error(`Erro ao cadastrar usuário: ${errorMessage}`);
             }
     
-            console.log(data);
-    
         } catch (error) {
-            console.log(error.message);
+            setLoading(false)
+            setError(error.message);
         }
     }
  
 
-    return { error, sendRequest}
+    return { error, sendRequest, loading}
 }

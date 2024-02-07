@@ -6,7 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const {sendRequest, error:sendError} = useSend()
+  const {sendRequest, error:sendError, loading} = useSend()
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -49,7 +49,11 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)} 
             required/>
         </label>
-            <button className='btn'>Entrar</button>
+
+        {!loading 
+        ? <button className='btn'>Cadastrar</button> 
+        : <button className='btn' disabled >Aguarde...</button>
+        }
            
         </form>
        <Link to='/register'><button className='btn_resgiter'>Criar Cadastro</button></Link>
