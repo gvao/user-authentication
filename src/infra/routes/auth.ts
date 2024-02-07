@@ -17,12 +17,16 @@ authRoute.post('/signup', async (req, res) => {
 })
 
 authRoute.post('/login', async (req, res) => {
-    const { email, password } = req.body
-    const loginUser = new LoginUser(userRepository)
-    const { token } = await loginUser.execute({ email, password })
-    res.status(200).json({
-        token,
-    })
+    try {
+        const { email, password } = req.body
+        const loginUser = new LoginUser(userRepository)
+        const { token } = await loginUser.execute({ email, password })
+        res.status(200).json({
+            token,
+        })
+    } catch (err) {
+        console.error(err)
+    }
 })
 
 authRoute.get('/user', async (req, res) => {
