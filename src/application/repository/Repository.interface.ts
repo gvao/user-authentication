@@ -1,5 +1,5 @@
-export interface AddRepository<T> {
-    add: (user: T) => Promise<void>
+export interface Add<T> {
+    add: (item: T) => Promise<void>
 }
 
 export interface GetByEmail<T> {
@@ -8,4 +8,8 @@ export interface GetByEmail<T> {
 
 export interface GetByTokenRepository<T> {
     getByToken(token: string): Promise<T | null>
+}
+
+export interface GetAll<T> {
+    getAll(): Promise<T[] | null>
 }

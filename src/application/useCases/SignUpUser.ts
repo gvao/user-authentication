@@ -1,9 +1,9 @@
 import User, { UserCreateProps } from "../../domain/entity/User"
 import { ErrorUserAlreadyExists } from "../Erros/ErrorUserAlreadyExists"
-import { AddRepository, GetByEmail } from "../repository/Repository.interface"
+import { Add, GetByEmail } from "../repository/Repository.interface"
 
 export default class SignUpUser {
-    constructor(readonly userRepository: AddRepository<User> & GetByEmail<User>) { }
+    constructor(readonly userRepository: Add<User> & GetByEmail<User>) { }
 
     async execute({ email, password, name }: Input): Promise<Output> {
         const user = User.create({ email, password, name })

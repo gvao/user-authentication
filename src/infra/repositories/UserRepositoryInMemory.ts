@@ -1,4 +1,4 @@
-import { AddRepository, GetByEmail, GetByTokenRepository } from "../../application/repository/Repository.interface"
+import { Add, GetByEmail, GetByTokenRepository } from "../../application/repository/Repository.interface"
 import User from "../../domain/entity/User"
 
 export default class UserRepositoryInMemory implements UserRepository {
@@ -19,6 +19,6 @@ export default class UserRepositoryInMemory implements UserRepository {
     }
 }
 
-type UserRepository = AddRepository<User> 
+type UserRepository = Add<User> 
     & GetByEmail<User> 
     & GetByTokenRepository<User>
