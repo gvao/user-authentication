@@ -1,4 +1,4 @@
-import { Router } from "express"
+import { NextFunction, Request, Response, Router } from "express"
 import UserRepositoryInMemory from "../repositories/UserRepositoryInMemory"
 import SignUpUser from "../../application/useCases/SignUpUser"
 import LoginUser from "../../application/useCases/LoginUser"
@@ -49,5 +49,16 @@ authRoute.get('/users', (req, res) => {
         users
     })
 })
+
+export function validToken(req: Request, res: Response, next: NextFunction){
+    const { authorization } = req.headers
+    if(!authorization) res.status(401).json({
+        message: `not found token`
+    })
+
+    const hasBearerString = authorization?.match('Bearer')
+
+    next()
+}
 
 export default authRoute
