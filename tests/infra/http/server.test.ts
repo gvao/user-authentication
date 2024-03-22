@@ -4,6 +4,7 @@ import http from 'http'
 import Server from "../../../src/infra/http/Server"
 import ExpressAdapter from "../../../src/infra/adapter/ExpressAdapter"
 import Fetcher from "../../utils/fetcher"
+import Route from "../../../src/domain/Route"
 
 const _PORT = 3333
 
@@ -17,7 +18,7 @@ describe('Server', () => {
         const server = new Server(expressAdapter)
         _server = server.listen(_PORT)
 
-        server.addRoute({ path: '/' }, function () {
+        const route = new Route('/', 'GET', async function ({ }) {
             return {
                 status: 200,
                 data: {
@@ -25,6 +26,8 @@ describe('Server', () => {
                 }
             }
         })
+
+        server.addRoute(route)
 
         await new Promise(resolve => _server.on('listening', resolve))
     })
@@ -39,7 +42,7 @@ describe('Server', () => {
 
     afterAll(async () => {
         _server.close(() => {
-            console.log('server closed')
+            // console.log('server closed')
         })
     })
 })
