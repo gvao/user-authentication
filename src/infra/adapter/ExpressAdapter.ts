@@ -1,6 +1,7 @@
-import HttpClient, { AddRouteProps, RequestFunction } from "../http/HttpClient.interface";
-import Express, { Request, RequestHandler, Response } from "express";
+import HttpClient from "../http/HttpClient.interface";
+import Express, { Request, Response } from "express";
 import http from 'http'
+import Route from "../../domain/Route";
 
 export default class ExpressAdapter implements HttpClient {
     app
@@ -8,26 +9,28 @@ export default class ExpressAdapter implements HttpClient {
 
     constructor() {
         this.app = Express()
+        this.app.use(Express.json())
         this.server = http.createServer(this.app)
     }
 
-    addRoute({ method = "GET", path, requestFunction }: AddRouteProps): void {
-
-        const callBack = async (req: Request, res: Response) => {
+    addRoute({ method = "GET", path, requestFunction }: Route): void {
+        if (method === "POST") {
+            this.app.post(path, callBack)
+            return
+        }
+        this.app.get(path, callBack)
+        return
+        
+        async function callBack(req: Request, res: Response) {
             const { headers, body, params, query } = req
             const { status, data } = await requestFunction({ headers, body, params, query })
             res.status(status).json(data)
-        }
-
-        if (method === "GET") {
-            this.app.get(path, callBack)
-            return
         }
     }
 
     listen(port: number) {
         return this.server.listen(port, () => {
-            console.log(`listening on port ${port}: http://localhost:${port}`);
+            // console.log(`listening on port ${port}: http://localhost:${port}`);
         })
     }
 
